@@ -1,38 +1,20 @@
-import org.junit.After;
+
 import org.junit.Assert;
-import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.concurrent.TimeUnit;
 
-public class InsuranceTest {
-    private WebDriver driver;
-    private WebDriverWait wait;
-    String baseUrl;
-
-    @Before
-    public void beforeTest() {
-        System.setProperty("webdriver.chrome.driver", "drv/chromedriver");
-        baseUrl = "http://www.sberbank.ru/ru/person";
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        wait = new WebDriverWait(driver, 15);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        //Перейти на страницу http://www.sberbank.ru/ru/person
-        driver.get(baseUrl);
-    }
+public class InsuranceTest extends BaseTest{
 
     @Test
+    @Ignore
     public void testInsurance() {
         //*Закрытие куки алерта
-
+        driver.get(baseUrl);
         driver.findElement(By.xpath("//*[@class='cookie-warning__close']"))
                 .click();
 
@@ -44,9 +26,12 @@ public class InsuranceTest {
         driver.findElement(By.xpath("//li[contains(@class,'lg-menu__sub-item')]/a[contains(text(),'Страхование путешественников')]"))
                 .click();
         //Проверить наличие на странице заголовка – Страхование путешественников
+
         WebElement title = driver.findElement
                 (By.xpath("//div[2][@class='kit-grid kit-grid_fixed']/div[@class='kit-row']/div[1]/h1[contains(text(),'Страхование путешественников')]"));
+
         wait.until(ExpectedConditions.visibilityOf(title));
+
         Assert.assertEquals("Страхование путешественников", title.getText());
         //Нажать на – Оформить Онлайн
         driver.findElement(By.xpath("//div[@class='product-teaser-full-width__button']/a/b"))
@@ -108,10 +93,5 @@ public class InsuranceTest {
 
     }
 
-
-    @After
-    public void afterTest() {
-        driver.quit();
-    }
 
 }
