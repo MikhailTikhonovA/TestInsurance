@@ -1,15 +1,11 @@
 import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import util.TestProperties;
-
-import java.util.NoSuchElementException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -42,21 +38,8 @@ public class BaseTest {
 
     @AfterClass
     public static void tearDown() throws Exception {
-        //driver.quit();
+        driver.quit();
     }
 
-    protected boolean isElementPresent(By by) {
-        try {
-            driver.findElement(by);
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-    }
-
-    protected void fillField(By locator, String value) {
-        driver.findElement(locator).clear();
-        driver.findElement(locator).sendKeys(value);
-    }
 
 }

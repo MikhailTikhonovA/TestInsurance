@@ -8,7 +8,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
-public class InsuranceTest extends BaseTest{
+public class InsuranceTestTaskOne extends BaseTest{
 
     @Test
     @Ignore

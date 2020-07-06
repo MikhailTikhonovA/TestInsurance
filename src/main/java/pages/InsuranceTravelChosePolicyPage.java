@@ -26,7 +26,7 @@ public class InsuranceTravelChosePolicyPage {
                 (By.xpath(".//div[contains(@class,'online-card-program')]/h3[contains(text(),'" + kindOf + "')]")).click();
     }
 
-    public void confirmChoiceOnPage(WebDriver driver){
+    public void confirmChoiceOnPage(WebDriver driver) {
         Wait<WebDriver> wait = new WebDriverWait(driver, 5, 1000);
         wait.until(ExpectedConditions.elementToBeClickable(confirmButton));
         confirmButton.click();
