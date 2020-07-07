@@ -6,9 +6,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import steps.BaseSteps;
 
 
-public class InsuranceTestTaskOne extends BaseTest{
+public class InsuranceTestTask1 extends BaseSteps {
 
     @Test
     @Ignore

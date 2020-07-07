@@ -1,3 +1,5 @@
+package steps;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.By;
@@ -9,7 +11,11 @@ import util.TestProperties;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-public class BaseTest {
+public class BaseSteps {
+
+    public static WebDriver getDriver() {
+        return driver;
+    }
 
     protected static WebDriver driver;
     protected static WebDriverWait wait;

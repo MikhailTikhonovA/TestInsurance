@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.junit.Assert;
 
-public class TravelInsuranceSubMenu {
+public class TravelInsuranceSubMenuPage {
 
     @FindBy(xpath = ".//div[2][@class='kit-grid kit-grid_fixed']/div[@class='kit-row']/div[1]/h1[contains(text(),'Страхование путешественников')]")
     WebElement headerOfTeaser;
@@ -18,11 +18,11 @@ public class TravelInsuranceSubMenu {
     WebElement startProcessingButton;
 
 
-    public TravelInsuranceSubMenu(WebDriver driver) {
+    public TravelInsuranceSubMenuPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
-    public TravelInsuranceSubMenu checkCurrentSubmenu(String title, WebDriver driver) {
+    public TravelInsuranceSubMenuPage checkCurrentSubmenu(String title, WebDriver driver) {
         Wait<WebDriver> wait = new WebDriverWait(driver, 5, 1000);
         wait.until(ExpectedConditions.visibilityOf(headerOfTeaser));
         testNameOfHeader(headerOfTeaser, title);
@@ -33,7 +33,7 @@ public class TravelInsuranceSubMenu {
         Assert.assertEquals(expectedText, headerOfTeaser.getText());
     }
 
-    public TravelInsuranceSubMenu startProcessingPolicy() {
+    public TravelInsuranceSubMenuPage startProcessingPolicy() {
         startProcessingButton.click();
         return this;
     }

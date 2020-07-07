@@ -1,18 +1,21 @@
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import pages.InsuranceTravelChosePolicyPage;
 import pages.InsuranceTravelFormingPolicyPage;
 import pages.MainPage;
-import pages.TravelInsuranceSubMenu;
+import pages.TravelInsuranceSubMenuPage;
+import steps.BaseSteps;
 
-public class RefInsurTest extends BaseTest {
+public class InsuranceTestTask2 extends BaseSteps {
     @Test
+    @Ignore
     public void newInsuranceTest() {
         MainPage mainPage = new MainPage(driver);
         mainPage.selectTypeOfMainMenu("Страхование", actionsMoveOn);
         mainPage.selectTypeOfSubMenu("Страхование путешественников");
-        TravelInsuranceSubMenu travelInsuranceSubMenu = new TravelInsuranceSubMenu(driver);
-        travelInsuranceSubMenu.checkCurrentSubmenu("Страхование путешественников", driver)
+        TravelInsuranceSubMenuPage travelInsuranceSubMenuPage = new TravelInsuranceSubMenuPage(driver);
+        travelInsuranceSubMenuPage.checkCurrentSubmenu("Страхование путешественников", driver)
                               .startProcessingPolicy();
         InsuranceTravelChosePolicyPage insuranceTravelChosePolicyPage = new InsuranceTravelChosePolicyPage(driver);
         insuranceTravelChosePolicyPage.selectTypeOfInsuranceProtection("Минимальная");
