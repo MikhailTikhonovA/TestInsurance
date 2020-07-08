@@ -35,6 +35,7 @@ public class InsuranceTestTask3 extends BaseSteps {
         insuranceTravelChosePolicySteps.stepSelectTypeOfInsuranceProtection("Минимальная");
         insuranceTravelChosePolicySteps.stepConfirmChoicePage();
         insuranceTravelFormingPolicySteps.stepFillFields(testData);
+        insuranceTravelFormingPolicySteps.stepCheckerFields(testData);
 
         // Не добавлен шаг проверки
 

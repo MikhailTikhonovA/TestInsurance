@@ -1,5 +1,6 @@
 package steps;
 
+import org.junit.Assert;
 import pages.InsuranceTravelFormingPolicyPage;
 import ru.yandex.qatools.allure.annotations.Step;
 
@@ -16,5 +17,12 @@ public class InsuranceTravelFormingPolicySteps extends BaseSteps {
         data.forEach(this::stepFillFieldOnFormingPage);
     }
 
+    public String getActualValue(String name){
+        return new InsuranceTravelFormingPolicyPage(driver).fieldChecker(name);
+    }
+
+    public void stepCheckerFields(HashMap<String, String> data){
+        data.forEach((key,value)-> Assert.assertEquals(value,getActualValue(key)));
+    }
 
 }
