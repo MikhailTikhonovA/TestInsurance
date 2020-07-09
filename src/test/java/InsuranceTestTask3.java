@@ -36,6 +36,8 @@ public class InsuranceTestTask3 extends BaseSteps {
         insuranceTravelChosePolicySteps.stepConfirmChoicePage();
         insuranceTravelFormingPolicySteps.stepFillFields(testData);
         insuranceTravelFormingPolicySteps.stepCheckerFields(testData);
+        insuranceTravelFormingPolicySteps.stepConfirmChoice();
+        insuranceTravelFormingPolicySteps.stepCheckAlertObligatoryFields("При заполнении данных произошла ошибка");
 
         // Не добавлен шаг проверки
 
