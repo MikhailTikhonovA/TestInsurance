@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import util.TestProperties;
+
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -38,8 +39,10 @@ public class BaseSteps {
         driver.get(baseUrl);
         if (driver.findElement(By.xpath("//*[@class='cookie-warning__close']")).isDisplayed()) {
             driver.findElement(By.xpath("//*[@class='cookie-warning__close']")).click();
-        } else
-            driver.findElement(By.xpath("//*[@class='kitt-cookie-warning__close']")).click();
+        }
+//        if (driver.findElement(By.xpath("//button[@class='kitt-cookie-warning__close']")).isDisplayed()) {
+//            driver.findElement(By.xpath("//button[@class='kitt-cookie-warning__close']")).click();
+//        }
     }
 
     @AfterClass

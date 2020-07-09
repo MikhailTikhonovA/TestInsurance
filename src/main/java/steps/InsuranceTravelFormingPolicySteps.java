@@ -1,9 +1,8 @@
 package steps;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import pages.InsuranceTravelFormingPolicyPage;
-import ru.yandex.qatools.allure.annotations.Step;
-
 import java.util.HashMap;
 
 public class InsuranceTravelFormingPolicySteps extends BaseSteps {
@@ -29,13 +28,13 @@ public class InsuranceTravelFormingPolicySteps extends BaseSteps {
     }
 
     @Step("Подтверждение шага")
-    public void stepConfirmChoice(){
+    public void stepConfirmChoice() {
         new InsuranceTravelFormingPolicyPage(driver).confirmChoiceOnPage(driver);
     }
 
     @Step("Проверка текста алерта{0}")
-    public void stepCheckAlertObligatoryFields(String text){
-        new InsuranceTravelFormingPolicyPage(driver).checkAlertObligatoryField(driver,text);
+    public void stepCheckAlertObligatoryFields(String text) {
+        new InsuranceTravelFormingPolicyPage(driver).checkAlertObligatoryField(driver, text);
     }
 
 }
