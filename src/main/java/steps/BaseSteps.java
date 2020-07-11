@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import util.TestProperties;
@@ -25,7 +24,7 @@ public class BaseSteps {
     }
 
     @Before
-    public static void setUp() throws InterruptedException {
+    public static void setUp() {
 
         System.setProperty("webdriver.chrome.driver", properties.getProperty("webdriver.chrome.driver"));
         driver = new ChromeDriver();
