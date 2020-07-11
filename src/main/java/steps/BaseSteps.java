@@ -1,32 +1,31 @@
 package steps;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import util.TestProperties;
-
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class BaseSteps {
-
-    public static WebDriver getDriver() {
-        return driver;
-    }
 
     protected static WebDriver driver;
     protected static WebDriverWait wait;
     protected static String baseUrl;
     protected static Actions actionsMoveOn;
     public static Properties properties = TestProperties.getInstance().getProperties();
+    public static WebDriver getDriver() {
+        return driver;
+    }
 
-
-    @BeforeClass
-    public static void setUp() throws Exception {
+    @Before
+    public static void setUp() throws InterruptedException {
 
         System.setProperty("webdriver.chrome.driver", properties.getProperty("webdriver.chrome.driver"));
         driver = new ChromeDriver();
@@ -37,16 +36,16 @@ public class BaseSteps {
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get(baseUrl);
-        if (driver.findElement(By.xpath("//*[@class='cookie-warning__close']")).isDisplayed()) {
-            driver.findElement(By.xpath("//*[@class='cookie-warning__close']")).click();
-        }
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='cookie-warning__close']")));
+        driver.findElement(By.xpath("//*[@class='cookie-warning__close']")).click();
+
 //        if (driver.findElement(By.xpath("//button[@class='kitt-cookie-warning__close']")).isDisplayed()) {
 //            driver.findElement(By.xpath("//button[@class='kitt-cookie-warning__close']")).click();
 //        }
     }
 
-    @AfterClass
-    public static void tearDown() throws Exception {
+    @After
+    public static void tearDown() {
         driver.quit();
     }
 

@@ -3,16 +3,19 @@ package steps;
 import io.qameta.allure.Step;
 import pages.TravelInsuranceSubMenuPage;
 
-public class TravelInsuranceSubMenuSteps extends BaseSteps {
+import static steps.BaseSteps.driver;
+
+public class TravelInsuranceSubMenuSteps {
+    TravelInsuranceSubMenuPage travelInsuranceSubMenuPage = new TravelInsuranceSubMenuPage(driver);
 
     @Step("Проверить заголовок меню {0}")
-    public void stepCheckTitleCurrentSubmenu(String type){
-        new TravelInsuranceSubMenuPage(driver).checkCurrentSubmenu(type,driver);
+    public void stepCheckTitleCurrentSubmenu(String type) {
+        travelInsuranceSubMenuPage.checkCurrentSubmenu(type, driver);
     }
 
     @Step("Запустить оформление полиса")
-    public void stepStartProcessingPolicy(){
-        new TravelInsuranceSubMenuPage(driver).startProcessingPolicy();
+    public void stepStartProcessingPolicy() {
+        travelInsuranceSubMenuPage.startProcessingPolicy();
     }
 
 }

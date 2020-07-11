@@ -4,12 +4,15 @@ import io.qameta.allure.Step;
 import org.junit.Assert;
 import pages.InsuranceTravelFormingPolicyPage;
 import java.util.HashMap;
+import java.util.Map;
+import static steps.BaseSteps.driver;
 
-public class InsuranceTravelFormingPolicySteps extends BaseSteps {
+public class InsuranceTravelFormingPolicySteps {
+    InsuranceTravelFormingPolicyPage insuranceTravelFormingPolicyPage = new InsuranceTravelFormingPolicyPage(driver);
 
     @Step("Поле {0} заполняется значением {1}")
     public void stepFillFieldOnFormingPage(String nameOfField, String value) {
-        new InsuranceTravelFormingPolicyPage(driver).fieldFiller(nameOfField, value);
+        insuranceTravelFormingPolicyPage.fieldFiller(nameOfField, value);
     }
 
     @Step("Заполнение полей")
@@ -19,22 +22,22 @@ public class InsuranceTravelFormingPolicySteps extends BaseSteps {
 
     @Step("Проверка поля {0}")
     public String getActualValue(String name) {
-        return new InsuranceTravelFormingPolicyPage(driver).fieldChecker(name);
+        return insuranceTravelFormingPolicyPage.fieldChecker(name);
     }
 
     @Step("Проверка полей")
-    public void stepCheckerFields(HashMap<String, String> data) {
+    public void stepCheckerFields(Map<String, String> data) {
         data.forEach((key, value) -> Assert.assertEquals(value, getActualValue(key)));
     }
 
     @Step("Подтверждение шага")
     public void stepConfirmChoice() {
-        new InsuranceTravelFormingPolicyPage(driver).confirmChoiceOnPage(driver);
+        insuranceTravelFormingPolicyPage.confirmChoiceOnPage(driver);
     }
 
     @Step("Проверка текста алерта{0}")
     public void stepCheckAlertObligatoryFields(String text) {
-        new InsuranceTravelFormingPolicyPage(driver).checkAlertObligatoryField(driver, text);
+        insuranceTravelFormingPolicyPage.checkAlertObligatoryField(driver, text);
     }
 
 }

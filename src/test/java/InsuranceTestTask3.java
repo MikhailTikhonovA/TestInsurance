@@ -1,4 +1,5 @@
 import io.qameta.allure.junit4.DisplayName;
+import org.junit.Ignore;
 import org.junit.Test;
 import steps.*;
 
@@ -9,8 +10,9 @@ public class InsuranceTestTask3 extends BaseSteps {
 
     @Test
     @DisplayName("Страхование путешественников")
+    @Ignore
     public void testInsurance() {
-        MainSteps mainSteps = new MainSteps();
+        MainMenuSteps mainSteps = new MainMenuSteps();
         TravelInsuranceSubMenuSteps travelInsuranceSubMenuSteps = new TravelInsuranceSubMenuSteps();
         InsuranceTravelChosePolicySteps insuranceTravelChosePolicySteps = new InsuranceTravelChosePolicySteps();
         InsuranceTravelFormingPolicySteps insuranceTravelFormingPolicySteps = new InsuranceTravelFormingPolicySteps();
